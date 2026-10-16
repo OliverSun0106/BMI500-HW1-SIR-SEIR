@@ -14,11 +14,11 @@ I also tested different transmission and recovery rates to understand how these 
 
 ## 2. Files
 
-- `HW1_SIR_SEIR.ipynb`: Python code, calculations, and plots for Parts A–E.
+- `HW1_SIR_SEIR.ipynb`: Python code, calculations, and plots for Parts A–F.
 - `hypothesis.pdf`: My original handwritten hypothesis.
 - `README.md`: Results and discussion.
 - `figures/`: Figures exported from the notebook.
-- `slide.pdf`: Required one-slide presentation, to be created independently and added before submission.
+- `slide.pdf`: Independently created one-slide summary of the hypothesis, results, and modeling lesson.
 
 ## 3. How to Run
 
@@ -319,7 +319,29 @@ In this comparison, increasing γ by 10% reduced the infection peak slightly mor
 
 Therefore, my hypothesis was not consistently supported. The relative effect depends on the parameter values and the changes being compared.
 
-## 8. Discussion: Hypothesis Revisited
+## 8. Part F: Bonus — Intervention Timing
+
+This extension asks whether the same reduction in transmission is more effective when introduced earlier. All three scenarios use the Part D initial populations and parameters and run for 365 days. The intervention reduces β by 30% and remains active for the rest of the simulation; all other parameters stay unchanged.
+
+| Scenario | Transmission rate | Peak infectious population | Peak day | Cumulative new infections |
+|---|---|---:|---:|---:|
+| No intervention | Original β throughout | 317.60 | 61.7 | 3073.90 |
+| Early intervention | Reduce β from day 20 | 159.33 | 73.4 | 2007.57 |
+| Late intervention | Reduce β from day 60 | 316.81 | 60.5 | 2013.36 |
+
+![Infectious populations with no intervention and interventions starting on day 20 or day 60](figures/intervention_timing.png)
+
+*Figure 6. The same 30% reduction in transmission has different effects depending on its timing. Dotted vertical lines mark intervention starts, and dots mark the maximum infectious populations.*
+
+Early intervention reduces the peak by about 49.8% and delays it by 11.7 days. Late intervention reduces the peak by only about 0.25%, because many people have already become infected or exposed by day 60. Exposed people can still become infectious after transmission is reduced.
+
+Both interventions reduce cumulative new infections over the first year by about 35%. Their cumulative totals are similar even though their peaks are very different. This shows why peak healthcare demand and total infections should be considered separately.
+
+The reduced β is 0.0000875 per person per day, giving a basic reproduction number of about 1.6340. This is still above 1, so the intervention does not guarantee elimination. The effective reproduction number also depends on the susceptible population. These totals cover only 365 days; a longer simulation could show further waves and change the cumulative comparison.
+
+The main lesson is that acting early can greatly reduce peak healthcare demand, even when the intervention has the same strength. This is an additional experiment, not a change to my original handwritten hypothesis.
+
+## 9. Discussion: Hypothesis Revisited
 
 Before starting the simulations, I wrote three hypotheses.
 
@@ -361,17 +383,17 @@ I also learned that model parameters and assumptions are important. Even when th
 
 These models use several simplified assumptions:
 
-- Transmission and recovery rates are constant.
+- Transmission and recovery rates are constant in Parts A–E; Part F allows one scheduled reduction in transmission.
 - People are assumed to mix equally.
 - Recovered people do not become susceptible again.
 - The birth and death rates are simplified.
 - The model does not include vaccination or changes in human behavior.
 
-These models help explain possible disease patterns, but they are not exact predictions. A useful extension would allow transmission to change over time or include vaccination.
+These models help explain possible disease patterns, but they are not exact predictions. Part F explores one change in transmission over time. A further extension could include vaccination or gradual changes in behavior.
 
 As numerical checks, I verified population conservation and nonnegative populations. Halving the Euler time step from 0.1 to 0.05 day changed the Part E peaks by at most 1.82 people and cumulative infections by at most 1.28. The results are numerically stable at this scale, although Euler remains an approximation.
 
-## 9. AI Usage Statement
+## 10. AI Usage Statement
 
 **Complete AI conversation records:**
 
