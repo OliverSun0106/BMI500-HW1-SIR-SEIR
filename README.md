@@ -18,7 +18,7 @@ I also tested different transmission and recovery rates to understand how these 
 - `hypothesis.pdf`: My original handwritten hypothesis.
 - `README.md`: Results and discussion.
 - `figures/`: Figures exported from the notebook.
-- `slide.pdf`: Independently created one-slide summary of the hypothesis, results, and modeling lesson.
+- `slide.pdf`: Required one-slide presentation, to be created independently and added before submission.
 
 ## 3. How to Run
 
@@ -397,4 +397,4 @@ As numerical checks, I verified population conservation and nonnegative populati
 
 **Complete AI conversation records:**
 
-Statement: ChatGPT (Codex) was used to complete this homework. The full chat is available at: [ADD PUBLIC CHAT URL(S)].
+Statement: ChatGPT (Codex) was used to complete this homework. The full chat is available at: [Full AI conversation](https://chatgpt.com/s/cx_6ad2826334408191a71270d5e88d5be8).
